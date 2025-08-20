@@ -1,0 +1,280 @@
+body{
+    background-color: rgb(6, 0, 27);
+    padding-top: 20px;
+    padding-left: 20px;
+    font-family: 'Bubblegum Sans', Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+#heads{
+    margin-right: 30px;
+}
+.btn{
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+    background-color: blue;
+    color: #ffff;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-family: 'Bubblegum Sans', Arial, Helvetica, sans-serif;
+    
+}
+.btn:hover{
+    cursor: pointer;
+    border: 2px solid red;
+    scale: 1.2;
+}
+
+.buttons-div{
+    background-color: rgb(0, 0, 70);
+    display: inline-block;
+    padding: 20px;
+    width: 360px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 255);
+    border-radius: 10px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 100;
+    animation: none;
+}
+@keyframes buttonsLeave {
+    60%{
+        scale: 1.2;
+        top: 60%;
+    }
+    100%{
+        scale: 1.2;
+        top: -50%;
+    }
+}
+@keyframes buttonsEnter {
+    0%{
+        scale: 1;
+        top: -50%;
+    }
+    100%{
+        scale: 1;
+        top: 50%;
+    }
+}
+#flip-space{
+    background-color: transparent;
+    height: 350px;
+    width: 400px;
+    /* border: 3px solid blue; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -175px;
+    z-index: 0;
+    display: none;
+
+   
+}
+.coin {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    transform-style: preserve-3d;
+    animation: none;
+  }
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    backface-visibility: hidden;
+  }
+.front {
+    background-image: url('heads.png');
+  }
+
+  .back {
+    background-image: url('tails.png');
+    transform: rotateY(180deg);
+  }
+  /*These are the three animations for the coin  */
+@keyframes flipheads{
+    from{
+        transform: rotateY(0deg);
+        scale: 0.1;
+    }
+    30%{
+        scale: 1.5;
+    }
+    to{
+        transform: rotateY(3600deg);
+
+        scale: 1;
+    }
+    
+}  
+
+@keyframes fliptails{
+    from{
+        transform: rotateY(0deg);
+        scale: 0.1;
+    }
+    30%{
+        scale: 1.5;
+    }
+    to{
+        transform: rotateY(3780deg);
+
+        scale: 1;
+    }
+    
+}  
+
+@keyframes coinDip {
+    from{
+        scale: 1;
+        transform: rotate(0deg);
+    }
+    to{
+        scale: 0;
+        transform: rotate(360deg);
+    }
+}
+.result {
+    width: 350px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 1000;
+    position: absolute;
+    top: 60%;
+    animation: none;
+}
+
+/* These are the two animations for the result */
+@keyframes show-result {
+    0%{
+        left: 0%;
+        margin-left: -500px;
+    }
+    100%{
+        left: 50%;
+        margin-left: -175px;
+
+    }
+}
+@keyframes remove-result {
+    from{
+        right: 50%;
+        margin-right: -175px;
+    }
+    to{
+        right: 0%;
+        margin-right: -500px;
+    }
+}
+#retry{
+    background-color: rgb(161, 161, 255);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    width: 120px;
+    height: 40px;
+    font-size: 25px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    /* margin-left: -60px; */
+    margin-top: 30px;
+    overflow: hidden;
+    visibility: hidden;
+    transform: translate(-50%,-50%);
+    animation: none;
+}
+@keyframes show-retry {
+    0%{
+        opacity: 0;
+      visibility: hidden;  
+    }
+   
+    100%{
+        
+       visibility: visible;
+    }
+}
+@keyframes remove-retry{
+    0%{
+        width: 120px;
+        height: 40px;
+        visibility: visible;
+    }  
+    30%{
+        width: 140px;
+        height: 40px;
+    
+    }
+    60%{
+        width: 140px;
+        height: 0px;
+    }
+    100%{
+        width: 0px;
+        height: 0px;
+        padding: 0px;
+        visibility: visible;
+    }
+}
+#reset{
+    background-color: blue;
+    color: yellow;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid rgb(229, 255, 0);
+    font-size: 25px;
+}
+.buttons-div2{
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}
+.score{
+    font-size: 20px;
+    margin-left: 0px;
+    z-index: -100;
+    animation: none;
+}
+/* @keyframes showScore{
+ from{
+    margin-left: -500px;
+ }
+ to{
+    margin-left: 0px;
+ }
+}
+@keyframes removeScore{
+    from{
+        margin-left: -500px;
+    }
+    to{
+        margin-left: -500px;
+    }
+} */
+.score-btn{
+    height: 50px;
+    width: 80px;
+    font-size: 17px;
+    font-family: 'Bubblegum Sans', Arial, Helvetica, sans-serif;
+    background-color: rgb(0, 0, 255);
+    color: yellow;
+    border: 2px solid rgb(229, 255, 0);
+    border-radius: 10px;
+}
